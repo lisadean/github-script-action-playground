@@ -7,6 +7,9 @@ jobs:
   get-outputs:
     name: Get skip-deploy and skip-chromatic outputs
     runs-on: ubuntu-latest
+    outputs:
+      skip-deploy: ${{ steps.skip-deploy.outputs.skip-deploy }}
+      skip-chromatic: ${{ steps.skip-chromatic.outputs.skip-chromatic }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -21,3 +24,9 @@ jobs:
           script: |
             const script = require('.github/scripts/skip-output.js');
             script({github, context});
+      - id: skip-chromatic
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const script = require('.github/scripts/skip-output.js');
+            script({github, context });
