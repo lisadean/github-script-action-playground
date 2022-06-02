@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - run: |
+          cd .github/scripts
+          npm ci --omit=dev # We don't want to install jest and its dependencies
       - id: skip-deploy
         uses: actions/github-script@v6
         with:
