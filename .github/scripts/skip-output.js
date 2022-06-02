@@ -1,3 +1,3 @@
-module.exports = async ({ github, context }) => {
+module.exports = async ({ github, context, core, outputName }) => {
   console.log('stuff');
 };
