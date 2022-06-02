@@ -23,10 +23,10 @@ jobs:
         with:
           script: |
             const script = require('.github/scripts/skip-output.js');
-            script({github, context, core, 'skip-deploy'});
+            script({github, context, core}, 'skip-deploy');
       - id: skip-chromatic
         uses: actions/github-script@v6
         with:
           script: |
             const script = require('.github/scripts/skip-output.js');
-            script({github, context, core, 'skip-chromatic'});
+            script({github, context, core}, 'skip-chromatic');
